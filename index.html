@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Syukuran Khitanan</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Reenie+Beanie&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        emeraldCustom: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            800: '#065f46',
+                            900: '#042f2e',
+                            950: '#021e1d',
+                        },
+                        goldCustom: {
+                            100: '#fef3c7',
+                            300: '#fcd34d',
+                            400: '#fbbf24',
+                            500: '#d97706',
+                            600: '#b45309',
+                            700: '#92400e',
+                        },
+                        ivory: '#fcfbf7'
+                    },
+                    fontFamily: {
+                        arabic: ['Amiri', 'serif'],
+                        serifHeading: ['Cinzel', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Modern Islamic Geometric Background Patterns */
+        .pattern-bg {
+            background-color: #042f2e;
+            background-image: radial-gradient(rgba(217, 119, 6, 0.25) 1px, transparent 1px), radial-gradient(rgba(217, 119, 6, 0.25) 1px, #042f2e 1px);
+            background-size: 24px 24px;
+            background-position: 0 0, 12px 12px;
+        }
+
+        .hero-bg-photo {
+            position: relative;
+            background: linear-gradient(180deg, rgba(2, 30, 29, 0.92) 0%, rgba(4, 47, 46, 0.96) 100%);
+            overflow: hidden;
+        }
+        .hero-bg-photo::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: var(--moza-img);
+            background-size: cover;
+            background-position: center top;
+            opacity: 0.25;
+            filter: contrast(110%);
+            z-index: 0;
+        }
+
+        .cover-bg-photo {
+            position: relative;
+            background: linear-gradient(180deg, rgba(2, 30, 29, 0.88) 0%, rgba(4, 47, 46, 0.97) 100%);
+            overflow: hidden;
+        }
+        .cover-bg-photo::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: var(--moza-img);
+            background-size: cover;
+            background-position: center top;
+            opacity: 0.35;
+            filter: contrast(105%);
+            z-index: 0;
+        }
+
+        /* Glassmorphism & Gold Borders */
+        .glass-card-dark {
+            background: rgba(4, 47, 46, 0.65);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+        }
+        
+        .glass-card-light {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(217, 119, 6, 0.25);
+            box-shadow: 0 15px 35px -5px rgba(4, 47, 46, 0.08);
+        }
+
+        /* Gold Gradient Text */
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #fef3c7 0%, #fbbf24 50%, #d97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-border-glow {
+            box-shadow: 0 0 15px rgba(251, 191, 36, 0.25);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .comments-scroll::-webkit-scrollbar {
+            width: 5px;
+        }
+        .comments-scroll::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 10px;
+        }
+        .comments-scroll::-webkit-scrollbar-thumb {
+            background: #d97706;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-stone-900 font-sans text-stone-800 antialiased selection:bg-goldCustom-500 selection:text-white">
+
+    <!-- Variable gambar foto Moza dari Google Drive -->
+    <script>
+        const photoUrl = 'https://drive.google.com/uc?export=view&id=10EP9ChcZ71Sch5-1kXoId_y2jyoUjf9T'; 
+        document.documentElement.style.setProperty('--moza-img', `url('${photoUrl}')`);
+    </script>
+
+    <!-- COVER SPLASH / SAMPUL DEPAN ELEGAN ISLAMI -->
+    <div id="cover" class="fixed inset-0 z-50 flex flex-col items-center justify-between cover-bg-photo text-white p-6 text-center transition-opacity duration-700">
+        <!-- Overlay Layer untuk Kontras Murni -->
+        <div class="absolute inset-0 bg-gradient-to-b from-emeraldCustom-950/80 via-emeraldCustom-900/85 to-emeraldCustom-950/98 z-0"></div>
+
+        <!-- Frame Header Ornamental Cover -->
+        <div class="relative z-10 pt-6 animate-float">
+            <!-- Frame Foto Moza Ornamen Emas -->
+            <div class="relative mx-auto mb-3 w-32 h-32 flex items-center justify-center">
+                <!-- SVG Ornamental Frame Ring -->
+                <svg class="absolute inset-0 w-full h-full text-goldCustom-400 opacity-90 animate-spin" style="animation-duration: 25s;" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 3" />
+                    <circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="0.8" />
+                </svg>
+                <div class="w-24 h-24 rounded-full border-2 border-goldCustom-400 overflow-hidden shadow-2xl z-10 p-1 bg-emeraldCustom-900">
+                    <img id="coverPhotoImg" src="https://drive.google.com/uc?export=view&id=10EP9ChcZ71Sch5-1kXoId_y2jyoUjf9T" alt="Foto Hasya Shakiell Mauza (Moza)" class="w-full h-full object-cover rounded-full" onerror="this.onerror=null; this.src='https://lh3.google.com/u/0/d/10EP9ChcZ71Sch5-1kXoId_y2jyoUjf9T';">
+                </div>
+            </div>
+            
+            <p class="font-arabic text-3xl text-goldCustom-400 drop-shadow">Syukuran Khitanan</p>
+            <div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-goldCustom-400 to-transparent mx-auto mt-2"></div>
+        </div>
+
+        <!-- Main Cover Content -->
+        <div class="relative z-10 my-auto max-w-md w-full">
+            <p class="text-xs uppercase tracking-[0.25em] text-goldCustom-300/90 mb-3 font-medium">Undangan Istimewa</p>
+            <div class="glass-card-dark py-2.5 px-6 rounded-2xl inline-block mb-6 gold-border-glow">
+                <span class="text-xs text-stone-300 block mb-0.5">Kepada Yth. Bapak/Ibu/Saudara/i:</span>
+                <h2 id="guestName" class="text-lg font-bold text-white tracking-wide">
+                    Tamu Undangan
+                </h2>
+            </div>
+            
+            <p class="text-xs text-stone-300 tracking-wider mb-2 uppercase">Putra Kami</p>
+            <h1 class="text-3xl sm:text-4xl font-serifHeading font-bold text-gold-gradient mb-1 tracking-wider drop-shadow-md">
+                HASYA SHAKIELL MAUZA
+            </h1>
+            <p class="text-xl font-arabic text-goldCustom-300 mb-4">(Moza)</p>
+            
+            <div class="inline-flex items-center gap-2 text-xs text-stone-300 border-t border-b border-goldCustom-500/30 py-1.5 px-4">
+                <i class="fa-regular fa-calendar-star text-goldCustom-400"></i>
+                <span>Minggu, 29 November 2026</span>
+            </div>
+        </div>
+
+        <!-- Button Open -->
+        <div class="relative z-10 pb-8 w-full max-w-xs">
+            <button onclick="openInvitation()" class="w-full py-3.5 px-6 bg-gradient-to-r from-goldCustom-500 via-goldCustom-400 to-goldCustom-600 hover:from-goldCustom-400 hover:to-goldCustom-500 text-emeraldCustom-950 font-bold rounded-full shadow-2xl transform transition active:scale-95 flex items-center justify-center gap-3 tracking-wide">
+                <i class="fa-solid fa-envelope-open-text text-base"></i> Buka Undangan
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN CONTAINER UNDANGAN -->
+    <div id="mainContent" class="max-w-md mx-auto bg-ivory min-h-screen shadow-2xl relative pb-20 hidden border-x border-goldCustom-500/20">
+
+        <!-- AUDIO TOGGLE CONTROLLER -->
+        <div class="fixed top-4 right-4 z-40">
+            <button id="audioBtn" onclick="toggleAudio()" class="w-10 h-10 bg-emeraldCustom-900/90 text-goldCustom-400 rounded-full shadow-xl flex items-center justify-center border border-goldCustom-400/60 backdrop-blur-sm focus:outline-none">
+                <i id="audioIcon" class="fa-solid fa-music"></i>
+            </button>
+        </div>
+
+        <!-- HERO SECTION -->
+        <header class="relative hero-bg-photo text-white pt-14 pb-24 px-6 text-center rounded-b-[45px] shadow-2xl">
+            <div class="absolute inset-0 bg-gradient-to-b from-emeraldCustom-950/80 via-emeraldCustom-900/90 to-emeraldCustom-950/98 z-0"></div>
+            
+            <!-- Floating Islamic Lantern Icon Ornament -->
+            <div class="relative z-10">
+                <div class="animate-float mb-3">
+                    <i class="fa-solid fa-mosque text-goldCustom-400 text-2xl mb-2 opacity-80"></i>
+                    <p class="font-arabic text-3xl sm:text-4xl text-gold-gradient leading-relaxed drop-shadow">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
+                </div>
+                <p class="font-arabic text-xl text-goldCustom-100 mb-5">Assalamu’alaikum Warahmatullahi Wabarakatuh</p>
+                <p class="text-xs leading-relaxed text-stone-200 max-w-xs mx-auto font-light tracking-wide">
+                    Tanpa mengurangi rasa hormat, izinkan kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu pada acara syukuran khitanan putra kami:
+                </p>
+            </div>
+        </header>
+
+        <!-- NAMA ANAK & ORANG TUA SECTION -->
+        <section class="-mt-16 px-6 relative z-10 text-center">
+            <div class="glass-card-light rounded-3xl p-6 shadow-2xl relative overflow-hidden">
+                <!-- Top Islamic Arch SVG Overlay Ornament -->
+                <div class="absolute -top-6 left-1/2 -translate-x-1/2 text-goldCustom-500/20 w-32 h-12">
+                    <svg viewBox="0 0 100 40" class="w-full h-full fill-current">
+                        <path d="M0,40 Q50,-10 100,40 Z"></path>
+                    </svg>
+                </div>
+
+                <!-- Frame Foto Profil Anak -->
+                <div class="relative w-28 h-28 mx-auto mb-4">
+                    <div class="w-full h-full rounded-full border-2 border-goldCustom-500 p-1 bg-gradient-to-b from-goldCustom-300 to-goldCustom-600 shadow-xl overflow-hidden">
+                        <img id="mainPhotoImg" src="https://drive.google.com/uc?export=view&id=10EP9ChcZ71Sch5-1kXoId_y2jyoUjf9T" alt="Foto Hasya Shakiell Mauza (Moza)" class="w-full h-full object-cover rounded-full" onerror="this.onerror=null; this.src='https://lh3.google.com/u/0/d/10EP9ChcZ71Sch5-1kXoId_y2jyoUjf9T';">
+                    </div>
+                </div>
+
+                <!-- Nama Anak -->
+                <h2 class="text-2xl sm:text-3xl font-serifHeading font-bold text-emeraldCustom-900 tracking-wide mb-0.5">
+                    HASYA SHAKIELL MAUZA
+                </h2>
+                <p class="text-lg font-arabic text-goldCustom-600 font-semibold mb-4">(Moza)</p>
+                
+                <!-- Divider Ornament -->
+                <div class="flex items-center justify-center gap-2 mb-4">
+                    <div class="h-px bg-stone-300 w-12"></div>
+                    <i class="fa-solid fa-kaaba text-goldCustom-500 text-xs"></i>
+                    <div class="h-px bg-stone-300 w-12"></div>
+                </div>
+
+                <p class="text-[11px] uppercase tracking-widest text-stone-500 font-medium mb-2">Putra Ke-2 dari</p>
+                <div class="bg-emeraldCustom-50/70 border border-emeraldCustom-800/10 rounded-2xl py-3 px-4 text-xs font-medium text-emeraldCustom-900 space-y-1">
+                    <p class="font-bold text-emeraldCustom-900">Bapak FERI OKTOROZA</p>
+                    <p class="text-goldCustom-600 text-[10px] font-bold">&</p>
+                    <p class="font-bold text-emeraldCustom-900">Ibu MAZIDATUSSA'ADAH (IDA)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACARA & COUNTDOWN SECTION -->
+        <section class="p-6 text-center">
+            <div class="mb-3">
+                <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-goldCustom-600 bg-goldCustom-100 px-3 py-1 rounded-full">Agenda Utama</span>
+            </div>
+            <h3 class="text-xl font-serifHeading font-bold text-emeraldCustom-900 mb-1">Waktu & Pelaksanaan</h3>
+            <p class="text-xs text-stone-500 mb-6">Insya Allah acara akan dilaksanakan pada:</p>
+
+            <!-- Card Waktu -->
+            <div class="bg-gradient-to-b from-emeraldCustom-900 to-emeraldCustom-950 text-white rounded-3xl p-6 mb-6 shadow-xl border border-goldCustom-500/30 relative overflow-hidden">
+                <div class="flex items-center justify-center gap-2 text-goldCustom-400 mb-3">
+                    <i class="fa-solid fa-calendar-day text-lg"></i>
+                    <span class="font-bold text-base tracking-wide">Minggu, 29 November 2026</span>
+                </div>
+                <div class="flex items-center justify-center gap-2 text-stone-200 text-xs font-light">
+                    <i class="fa-regular fa-clock text-goldCustom-400"></i>
+                    <span>Pukul 14.00 WIB – Selesai</span>
+                </div>
+            </div>
+
+            <!-- Countdown Timer -->
+            <div class="mb-6">
+                <p class="text-xs font-semibold text-stone-500 uppercase tracking-widest mb-3">Hitung Mundur Waktu Acara</p>
+                <div class="grid grid-cols-4 gap-2.5 max-w-xs mx-auto">
+                    <div class="bg-white border border-goldCustom-500/30 rounded-2xl p-2.5 shadow-sm">
+                        <span id="days" class="block text-2xl font-bold text-emeraldCustom-900">00</span>
+                        <span class="text-[9px] font-bold uppercase tracking-wider text-goldCustom-600">Hari</span>
+                    </div>
+                    <div class="bg-white border border-goldCustom-500/30 rounded-2xl p-2.5 shadow-sm">
+                        <span id="hours" class="block text-2xl font-bold text-emeraldCustom-900">00</span>
+                        <span class="text-[9px] font-bold uppercase tracking-wider text-goldCustom-600">Jam</span>
+                    </div>
+                    <div class="bg-white border border-goldCustom-500/30 rounded-2xl p-2.5 shadow-sm">
+                        <span id="minutes" class="block text-2xl font-bold text-emeraldCustom-900">00</span>
+                        <span class="text-[9px] font-bold uppercase tracking-wider text-goldCustom-600">Menit</span>
+                    </div>
+                    <div class="bg-white border border-goldCustom-500/30 rounded-2xl p-2.5 shadow-sm">
+                        <span id="seconds" class="block text-2xl font-bold text-emeraldCustom-900">00</span>
+                        <span class="text-[9px] font-bold uppercase tracking-wider text-goldCustom-600">Detik</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Button Save Calendar -->
+            <button onclick="saveToCalendar()" class="inline-flex items-center gap-2 px-5 py-2.5 bg-emeraldCustom-900 text-goldCustom-400 text-xs font-semibold rounded-full hover:bg-emeraldCustom-800 transition shadow-md">
+                <i class="fa-solid fa-calendar-plus"></i> Simpan Tanggal ke Kalender
+            </button>
+        </section>
+
+        <!-- LOKASI SECTION -->
+        <section class="p-6 bg-emeraldCustom-50/50 border-y border-stone-200/60">
+            <div class="text-center mb-5">
+                <div class="w-12 h-12 bg-gradient-to-tr from-goldCustom-600 to-goldCustom-400 text-emeraldCustom-950 rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-md">
+                    <i class="fa-solid fa-map-location-dot text-xl"></i>
+                </div>
+                <h3 class="text-xl font-serifHeading font-bold text-emeraldCustom-900">Lokasi Acara</h3>
+                <p class="text-sm font-bold text-stone-800 mt-2">Rumah Ibu IDA</p>
+                <p class="text-xs text-stone-600 mt-1 px-4 leading-relaxed">
+                    Klego Gg. 3 Segorek RT 06 RW 02<br>
+                    <span class="text-emeraldCustom-800 font-semibold">(Gang Pom Bensin Mini)</span>
+                </p>
+            </div>
+
+            <div class="text-center">
+                <a href="https://maps.app.goo.gl/wj58w1UgdtqbqeQNA?g_st=aw" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-6 bg-gradient-to-r from-emeraldCustom-900 to-emeraldCustom-800 hover:from-emeraldCustom-800 hover:to-emeraldCustom-900 text-goldCustom-400 font-bold text-xs rounded-2xl shadow-lg flex items-center justify-center gap-2 transition tracking-wide border border-goldCustom-500/30">
+                    <i class="fa-solid fa-compass text-sm"></i> Petunjuk Navigasi (Google Maps)
+                </a>
+            </div>
+        </section>
+
+        <!-- KADO DIGITAL / AMPLOP DIGITAL SECTION -->
+        <section class="p-6 text-center">
+            <div class="mb-3">
+                <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-goldCustom-600 bg-goldCustom-100 px-3 py-1 rounded-full">Tanda Kasih</span>
+            </div>
+            <h3 class="text-xl font-serifHeading font-bold text-emeraldCustom-900 mb-1">Kado & Amplop Digital</h3>
+            <p class="text-xs text-stone-500 mb-6 px-4">
+                Doa restu Anda merupakan karunia terindah bagi kami. Namun bagi Bapak/Ibu/Saudara/i yang ingin memberikan tanda kasih secara digital, dapat disalurkan melalui rekening berikut:
+            </p>
+
+            <!-- Card Rekening BCA -->
+            <div class="bg-white rounded-3xl p-6 shadow-md border border-goldCustom-500/30 relative overflow-hidden mb-4">
+                <div class="flex items-center justify-between mb-4 pb-3 border-b border-stone-100">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-gift text-goldCustom-500 text-lg"></i>
+                        <span class="font-bold text-xs tracking-wider text-emeraldCustom-900">BANK BCA</span>
+                    </div>
+                    <span class="text-[10px] font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-md">BCA</span>
+                </div>
+
+                <div class="text-left space-y-1 mb-4">
+                    <p class="text-[10px] text-stone-400 uppercase tracking-widest font-medium">Nomor Rekening</p>
+                    <p id="bcaAccountNo" class="text-xl font-bold tracking-wider text-stone-800 font-mono">2381094237</p>
+                    <p class="text-xs font-semibold text-emeraldCustom-900 pt-1">a.n. MAZIDATUSSA'ADAH</p>
+                </div>
+
+                <button onclick="copyToClipboard('2381094237')" class="w-full py-2.5 bg-goldCustom-100 hover:bg-goldCustom-300/60 text-goldCustom-700 font-bold text-xs rounded-xl transition flex items-center justify-center gap-2">
+                    <i class="fa-regular fa-copy"></i> Salin Nomor Rekening
+                </button>
+            </div>
+
+            <!-- Toast Alert Salin -->
+            <div id="copyToast" class="hidden text-xs bg-emeraldCustom-900 text-goldCustom-400 py-2 px-4 rounded-full font-medium transition duration-300 shadow-md mb-4 inline-flex items-center gap-2">
+                <i class="fa-solid fa-circle-check text-emerald-400"></i> Nomor rekening berhasil disalin!
+            </div>
+
+            <!-- Konfirmasi Kado via WA -->
+            <div class="mt-2">
+                <button onclick="sendGiftConfirmationWA()" class="w-full py-3.5 px-6 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-2xl shadow-md flex items-center justify-center gap-2 transition tracking-wide">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> Konfirmasi Transfer / Kado via WhatsApp
+                </button>
+            </div>
+        </section>
+
+        <!-- UCAPAN & DOA (RSVP SIMULATION) -->
+        <section class="p-6">
+            <div class="text-center mb-6">
+                <h3 class="text-xl font-serifHeading font-bold text-emeraldCustom-900">Ucapan & Doa Restu</h3>
+                <p class="text-xs text-stone-500">Berikan ucapan serta doa keberkahan untuk ananda Moza</p>
+            </div>
+
+            <form id="commentForm" onsubmit="submitComment(event)" class="space-y-3 mb-6 bg-white p-5 rounded-3xl border border-stone-200 shadow-sm">
+                <div>
+                    <input type="text" id="senderName" required placeholder="Nama Anda" class="w-full p-3 text-xs bg-stone-50 border border-stone-200 rounded-xl focus:ring-2 focus:ring-goldCustom-500 focus:outline-none">
+                </div>
+                <div>
+                    <select id="attendance" class="w-full p-3 text-xs bg-stone-50 border border-stone-200 rounded-xl focus:ring-2 focus:ring-goldCustom-500 focus:outline-none text-stone-700">
+                        <option value="Hadir">Insya Allah Hadir</option>
+                        <option value="Tidak Hadir">Maaf, Tidak Bisa Hadir</option>
+                        <option value="Ragu-ragu">Masih Ragu-ragu</option>
+                    </select>
+                </div>
+                <div>
+                    <textarea id="senderMessage" required rows="3" placeholder="Tuliskan ucapan atau doa restu..." class="w-full p-3 text-xs bg-stone-50 border border-stone-200 rounded-xl focus:ring-2 focus:ring-goldCustom-500 focus:outline-none"></textarea>
+                </div>
+                <button type="submit" class="w-full py-3 bg-emeraldCustom-900 hover:bg-emeraldCustom-800 text-goldCustom-400 font-bold text-xs rounded-xl transition shadow-md flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-base text-emerald-400"></i> Kirim Ucapan via WhatsApp
+                </button>
+            </form>
+
+            <!-- Daftar Ucapan -->
+            <div id="commentsList" class="comments-scroll max-h-60 overflow-y-auto space-y-3 pr-1">
+                <div class="bg-white p-3.5 rounded-2xl border border-stone-200 text-xs shadow-sm">
+                    <div class="flex justify-between items-center mb-1.5">
+                        <span class="font-bold text-emeraldCustom-900">Budi & Keluarga</span>
+                        <span class="bg-emeraldCustom-100 text-emeraldCustom-800 text-[9px] px-2.5 py-0.5 rounded-full font-bold">Hadir</span>
+                    </div>
+                    <p class="text-stone-600 italic leading-relaxed">"Selamat atas khitanan putranya. Semoga Moza menjadi anak yang sholeh, berbakti kepada orang tua, dan berguna bagi agama, bangsa, dan negara. Aamiin."</p>
+                </div>
+                <div class="bg-white p-3.5 rounded-2xl border border-stone-200 text-xs shadow-sm">
+                    <div class="flex justify-between items-center mb-1.5">
+                        <span class="font-bold text-emeraldCustom-900">Tante Rina</span>
+                        <span class="bg-emeraldCustom-100 text-emeraldCustom-800 text-[9px] px-2.5 py-0.5 rounded-full font-bold">Hadir</span>
+                    </div>
+                    <p class="text-stone-600 italic leading-relaxed">"Selamat ya dek Moza! Semoga cepat sembuh dan makin pintar sekolahnya."</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PENUTUP SECTION -->
+        <footer class="pattern-bg text-white p-8 text-center rounded-t-[45px] mt-8 border-t border-goldCustom-500/40 relative">
+            <div class="max-w-xs mx-auto">
+                <p class="text-xs leading-relaxed text-stone-200 mb-6 font-light">
+                    Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada putra kami.
+                </p>
+                <p class="text-xs text-goldCustom-300 mb-4">Atas kehadiran dan doa restunya, kami ucapkan terima kasih.</p>
+                
+                <div class="w-16 h-px bg-goldCustom-500/40 mx-auto mb-4"></div>
+                <p class="font-arabic text-xl text-gold-gradient mb-6">Wassalamu’alaikum Warahmatullahi Wabarakatuh</p>
+                
+                <div class="border-t border-emeraldCustom-800/80 pt-4">
+                    <p class="text-[10px] text-stone-400 uppercase tracking-widest mb-1.5">Kami yang berbahagia</p>
+                    <p class="font-serifHeading font-bold text-goldCustom-400 text-sm">Keluarga Besar</p>
+                    <p class="text-xs font-medium text-stone-200 mt-1 leading-relaxed">
+                        Bapak FERI OKTOROZA<br>& Ibu MAZIDATUSSA'ADAH (IDA)
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Set nama tamu dari query parameter URL (Contoh: index.html?to=NamaTamu)
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const guest = urlParams.get('to');
+            if (guest) {
+                document.getElementById('guestName').innerText = guest;
+            }
+        });
+
+        // Buka Undangan Logic
+        function openInvitation() {
+            const cover = document.getElementById('cover');
+            const mainContent = document.getElementById('mainContent');
+            
+            cover.classList.add('opacity-0');
+            setTimeout(() => {
+                cover.style.display = 'none';
+                mainContent.classList.remove('hidden');
+                // Play audio background
+                startAudio();
+                // Trigger Confetti Celebration
+                confetti({
+                    particleCount: 80,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                });
+            }, 700);
+        }
+
+        // Web Audio API Ambient Synthesizer
+        let audioCtx = null;
+        let isPlaying = false;
+        let timerId = null;
+
+        function startAudio() {
+            if (isPlaying) return;
+            try {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                isPlaying = true;
+                playSoftMelody();
+                document.getElementById('audioIcon').className = "fa-solid fa-music text-goldCustom-400 animate-spin";
+            } catch (e) {
+                console.log("Audio not supported or blocked");
+            }
+        }
+
+        function toggleAudio() {
+            if (!audioCtx) {
+                startAudio();
+                return;
+            }
+            if (isPlaying) {
+                audioCtx.suspend();
+                isPlaying = false;
+                document.getElementById('audioIcon').className = "fa-solid fa-volume-xmark text-stone-400";
+            } else {
+                audioCtx.resume();
+                isPlaying = true;
+                document.getElementById('audioIcon').className = "fa-solid fa-music text-goldCustom-400 animate-spin";
+            }
+        }
+
+        function playSoftMelody() {
+            const notes = [261.63, 293.66, 329.63, 392.00, 440.00, 523.25];
+            let index = 0;
+
+            function playNote() {
+                if (!isPlaying || !audioCtx) return;
+                
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(notes[index % notes.length], audioCtx.currentTime);
+
+                gain.gain.setValueAtTime(0.01, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.07, audioCtx.currentTime + 0.5);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 2.5);
+
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                osc.start();
+                osc.stop(audioCtx.currentTime + 2.5);
+
+                index = Math.floor(Math.random() * notes.length);
+                timerId = setTimeout(playNote, 2000);
+            }
+            playNote();
+        }
+
+        // Countdown Timer Logic
+        const targetDate = new Date("November 29, 2026 14:00:00").getTime();
+
+        const countdownInterval = setInterval(() => {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            if (difference < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById('days').innerText = "00";
+                document.getElementById('hours').innerText = "00";
+                document.getElementById('minutes').innerText = "00";
+                document.getElementById('seconds').innerText = "00";
+                return;
+            }
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = days < 10 ? '0' + days : days;
+            document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
+            document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+        }, 1000);
+
+        // Submit Comment Simulation & Send to WhatsApp
+        function submitComment(e) {
+            e.preventDefault();
+            const name = document.getElementById('senderName').value;
+            const attendance = document.getElementById('attendance').value;
+            const message = document.getElementById('senderMessage').value;
+
+            const newComment = document.createElement('div');
+            newComment.className = 'bg-white p-3.5 rounded-2xl border border-stone-200 text-xs shadow-sm animate-pulse';
+            
+            let badgeColor = "bg-emeraldCustom-100 text-emeraldCustom-800";
+            if (attendance === "Tidak Hadir") badgeColor = "bg-rose-100 text-rose-800";
+            if (attendance === "Ragu-ragu") badgeColor = "bg-amber-100 text-amber-800";
+
+            newComment.innerHTML = `
+                <div class="flex justify-between items-center mb-1.5">
+                    <span class="font-bold text-emeraldCustom-900">${escapeHtml(name)}</span>
+                    <span class="${badgeColor} text-[9px] px-2.5 py-0.5 rounded-full font-bold">${attendance}</span>
+                </div>
+                <p class="text-stone-600 italic leading-relaxed">"${escapeHtml(message)}"</p>
+            `;
+
+            const list = document.getElementById('commentsList');
+            list.insertBefore(newComment, list.firstChild);
+
+            setTimeout(() => {
+                newComment.classList.remove('animate-pulse');
+            }, 1000);
+
+            const waNumber = "6283106592023";
+            const waText = `Assalamu'alaikum Wr. Wb.
+
+*Ucapan & RSVP Khitanan Hasya Shakiell Mauza (Moza)*
+
+*Nama:* ${name}
+*Konfirmasi Kehadiran:* ${attendance}
+
+*Pesan / Doa:*
+"${message}"
+
+Terima Kasih.`;
+
+            const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(waText)}`;
+            
+            document.getElementById('commentForm').reset();
+            window.open(waUrl, '_blank');
+        }
+
+        function escapeHtml(text) {
+            return text
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        // Salin Teks ke Clipboard
+        function copyToClipboard(text) {
+            const tempInput = document.createElement('input');
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            const toast = document.getElementById('copyToast');
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 2500);
+        }
+
+        // Send Gift Confirmation to WhatsApp
+        function sendGiftConfirmationWA() {
+            const waNumber = "6283106592023";
+            const waText = `Assalamu'alaikum Wr. Wb.
+
+*Konfirmasi Hadiah / Amplop Digital Khitanan Hasya Shakiell Mauza (Moza)*
+
+*Atas Nama:* 
+*Jumlah / Kado:* 
+*Catatan:* 
+
+Terima Kasih atas berkah dan doanya untuk ananda Moza.`;
+
+            const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(waText)}`;
+            window.open(waUrl, '_blank');
+        }
+
+        // Save event to Google Calendar
+        function saveToCalendar() {
+            const title = encodeURIComponent("Syukuran Khitanan Hasya Shakiell Mauza (Moza)");
+            const details = encodeURIComponent("Syukuran Khitanan Putra Ke-2 dari Bapak FERI OKTOROZA & Ibu MAZIDATUSSA'ADAH (IDA)");
+            const location = encodeURIComponent("Rumah Ibu IDA, Klego Gg. 3 Segorek RT 06 RW 02 (Gang Pom Bensin Mini)");
+            const startDate = "20261129T070000Z";
+            const endDate = "20261129T110000Z";
+
+            const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDate}/${endDate}&details=${details}&location=${location}`;
+            window.open(calendarUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
